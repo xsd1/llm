@@ -47,7 +47,6 @@ def main(config):
     base_model.config.use_cache = False
     #base_model.config.pretraining_tp = 1
 
-    base_model_name ="/data/zsp/nips_zsp/Qwen14b_12_4"
     tokenizer = AutoTokenizer.from_pretrained(base_model_name, trust_remote_code=True)
     tokenizer.pad_token = tokenizer.eos_token
     ID_PAD = 151643

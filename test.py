@@ -33,7 +33,7 @@ def main(config):
     #     low_cpu_mem_usage=True,
     #     trust_remote_code=True
     # )
-    tokenizer = AutoTokenizer.from_pretrained('/data/zsp/nips_zsp/Qwen14b_12_4', padding_side = "left", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(base_model_name, padding_side = "left", trust_remote_code=True)
 
     model = AutoModelForCausalLM.from_pretrained(
         base_model_name,
@@ -102,7 +102,7 @@ def main(config):
     test_batches = len(test_dataset) // test_batch_size
     predictions = []
 
-    with open('/data/xsd/data/dev/dev_set.pickle', 'rb') as f:
+    with open('data/dev/dev_set.pickle', 'rb') as f:
         dev_set = pkl.load(f)
 
     with torch.no_grad():
